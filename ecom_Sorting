@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+class ecom_sorting {
+    
+    public static void linearsearch(int[] array,int customer_id)
+        {
+        boolean id_found = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == customer_id) {
+                System.out.println("Exists");
+                id_found = true;
+                break;
+            }
+        }
+        if(id_found == false){
+        System.out.println("id not found");
+        }
+        }
+        
+    public static void binarysearch(int[] array,int customer_id){
+        int l = 0;
+        int h = array.length;
+        while(l<h){
+            int mid = (l+h)/2;
+            if(array[mid] == customer_id){
+                System.out.println("id FOUND at " + mid );
+                break;
+            }else{
+                System.out.println("NOT found");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner id = new Scanner(System.in);
+        int[] array = {001, 002, 003, 004};
+        System.out.println("Enter the id you want to search");
+        int customer_id = id.nextInt();
+        System.out.println("which method would you like to use?\n1.linear 2.binary");
+        int choice = id.nextInt();
+        System.out.println("You chose " + choice);
+        if(choice == 1){
+            linearsearch(array, customer_id);
+        }else{
+            binarysearch(array, customer_id);
+        }
+        id.close();
+    }
+}
